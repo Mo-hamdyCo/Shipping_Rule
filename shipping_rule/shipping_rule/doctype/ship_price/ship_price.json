@@ -1,0 +1,58 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-06-01 13:27:01.900879",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "from_zone",
+  "type_of_ship",
+  "column_break_ewxp",
+  "to_zone",
+  "ship_rate"
+ ],
+ "fields": [
+  {
+   "fieldname": "from_zone",
+   "fieldtype": "Link",
+   "label": "From Zone",
+   "options": "Territory"
+  },
+  {
+   "fieldname": "type_of_ship",
+   "fieldtype": "Select",
+   "label": "Type Of ship",
+   "options": "\n\u0635\u0628\n\u0645\u0639\u0628\u0623"
+  },
+  {
+   "fieldname": "column_break_ewxp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "to_zone",
+   "fieldtype": "Link",
+   "label": "To Zone",
+   "options": "Territory"
+  },
+  {
+   "fieldname": "ship_rate",
+   "fieldtype": "Currency",
+   "label": "Ship Rate"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-06-01 13:48:25.183764",
+ "modified_by": "Administrator",
+ "module": "Shipping Rule",
+ "name": "ship price",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

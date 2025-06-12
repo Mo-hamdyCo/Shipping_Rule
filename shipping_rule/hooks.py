@@ -5,6 +5,18 @@ app_description = "Price rule"
 app_email = "mohamedhamdy2539@gmail.com"
 app_license = "mit"
 
+fixtures = [
+    {"dt": "Custom Field", "filters": [["name", "like", "Sales Invoice%"]]},
+    
+    {"dt": "Property Setter", "filters": [["doc_type", "=", "Sales Invoice"]]}
+]
+
+
+
+app_include_js = "/assets/v15custom/js/domistic_rule.js"
+doctype_js = {
+     "Sales Invoice": "public/js/domistic_rule.js"
+ }
 # Apps
 # ------------------
 
