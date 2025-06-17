@@ -9,28 +9,41 @@ class DomisticRule(Document):
 
 @frappe.whitelist()
 def get_shipping_price(item_code, from_zone, to_zone, type_of_shipment, price_list, posting_date):
-    result = frappe.get_all(
-        "ship price",
-        filters={
-            "from_zone": from_zone,
-            "to_zone": to_zone,
-            "type_of_ship": type_of_shipment
-        },
-        fields=["ship_rate", "parent"]
+    # Step 1: جيب كل Domistic Rules اللي فيها الصنف المطلوب
+    domistic_rules = frappe.get_all(
+        "Domistic Rule",
+        filters={"item": item_code},
+        fields=["name", "shippment_price_list"]
     )
 
-    if not result:
-        frappe.throw("مفيش سعر لصنف.")
+    if not domistic_rules:
+        frappe.throw(f"❌ مفيش Domistic Rule مرتبط بالصنف: {item_code}")
 
-    parent_name = result[0].parent
+    # Step 2: فلترة بناء على الشروط + الشيبمنت برايس ليست
+    for rule in domistic_rules:
+        if rule.shippment_price_list != price_list:
+            continue  # Ignore rules with different price list
 
-    if not frappe.db.exists("Domistic Rule", parent_name):
-        frappe.throw(f"Domistic Rule {parent_name} not found.")
+        result = frappe.get_all(
+            "ship price",
+            filters={
+                "parent": rule.name,
+                "from_zone": from_zone,
+                "to_zone": to_zone,
+                "type_of_ship": type_of_shipment
+            },
+            fields=["ship_rate"]
+        )
 
-    domistic_rule = frappe.get_doc("Domistic Rule", parent_name)
+        if result:
+            return {
+                "rate": result[0].ship_rate,
+                "rule_name": rule.name,
+                "price_list": rule.shippment_price_list
+            }
 
-    return {
-        "rate": result[0].ship_rate,
-        "rule_name": parent_name,
-        "price_list": domistic_rule.shippment_price_list  # تأكد من وجود هذا الحقل
-    }
+    # Step 3: fallback error
+    frappe.throw(
+        f"❌ مفيش سعر شحن متاح للصنف {item_code} من {from_zone} إلى {to_zone} عن طريق {type_of_shipment} باستخدام Price List: {price_list}"
+    )
+
