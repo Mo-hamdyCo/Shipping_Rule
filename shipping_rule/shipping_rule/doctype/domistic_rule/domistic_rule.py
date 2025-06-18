@@ -44,6 +44,6 @@ def get_shipping_price(item_code, from_zone, to_zone, type_of_shipment, price_li
 
     # Step 3: fallback error
     frappe.throw(
-        f"❌ مفيش سعر شحن متاح للصنف {item_code} من {from_zone} إلى {to_zone} عن طريق {type_of_shipment} باستخدام Price List: {price_list}"
+        f"  مفيش سعر شحن متاح للصنف {item_code} من {from_zone} - او ممكن نوع او قائمة سعر غلط "
     )
 

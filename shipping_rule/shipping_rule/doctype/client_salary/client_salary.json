@@ -1,0 +1,115 @@
+{
+ "actions": [],
+ "allow_auto_repeat": 1,
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-06-17 15:23:29.547794",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "column_break_ncjj",
+  "month",
+  "section_break_tspp",
+  "client_company",
+  "column_break_voqn",
+  "year",
+  "section_break_bxtf",
+  "salary_details",
+  "section_break_tnsd",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_tnsd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Client Salary",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "naming series",
+   "options": "CSD.###"
+  },
+  {
+   "fieldname": "column_break_ncjj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "month",
+   "fieldtype": "Select",
+   "label": "Month",
+   "options": "\nJanuary\nFebruary\nMarch\nApril\nMay\nJune\nJuly\nAugust\nSeptember\nOctober\nNovember\nDecember"
+  },
+  {
+   "fieldname": "section_break_tspp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "client_company",
+   "fieldtype": "Link",
+   "label": "Client Company",
+   "link_filters": "[[\"Customer\",\"custom_delivery_client_\",\"=\",1]]",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "column_break_voqn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "2025",
+   "fieldname": "year",
+   "fieldtype": "Int",
+   "label": "Year"
+  },
+  {
+   "fieldname": "section_break_bxtf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "salary_details",
+   "fieldtype": "Table",
+   "label": "Salary Details",
+   "options": "client salary details"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-06-17 15:30:02.785796",
+ "modified_by": "Administrator",
+ "module": "Shipping Rule",
+ "name": "Client Salary",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

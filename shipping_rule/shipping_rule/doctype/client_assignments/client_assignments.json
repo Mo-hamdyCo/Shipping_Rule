@@ -1,0 +1,50 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-06-17 15:15:59.419467",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company_account",
+  "column_break_efru",
+  "account_client_id",
+  "column_break_gszg"
+ ],
+ "fields": [
+  {
+   "fieldname": "company_account",
+   "fieldtype": "Link",
+   "label": "Company Account",
+   "link_filters": "[[\"Customer\",\"custom_delivery_client_\",\"=\",1]]",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "column_break_efru",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "account_client_id",
+   "fieldtype": "Data",
+   "label": "Account Client ID"
+  },
+  {
+   "fieldname": "column_break_gszg",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-06-17 15:18:30.115695",
+ "modified_by": "Administrator",
+ "module": "Shipping Rule",
+ "name": "Client assignments",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
